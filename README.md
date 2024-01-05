@@ -1,3 +1,5 @@
+![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/memfault/nrf7002-memfault-example/build.yml?style=for-the-badge&logo=githubactions)
+
 # nRF7002 Memfault Example Project
 
 This is an example nRF-Connect SDK project, based on this example:
