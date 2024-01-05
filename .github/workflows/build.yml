@@ -1,0 +1,28 @@
+# Very simple + crude way to build an nrf connect sdk based project
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install West
+        run: |
+          pip3 install west
+
+      - name: Initialize Zephyr Workspace
+        run: |
+          # hope there's a directory above us lol
+          PROJDIR_=$(basename ${PWD})
+          cd ..
+          west init -l ${PROJDIR_}
+          west update --narrow -o=--depth=1
+          west build -b nrf7002dk_nrf5340_cpuapp --pristine=always ${PROJDIR_} \
+            -- \
+            -DCONFIG_MEMFAULT_NCS_PROJECT_KEY=\"1234\"
