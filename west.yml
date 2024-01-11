@@ -10,4 +10,4 @@ manifest:
     - name: memfault-firmware-sdk
       url: https://github.com/memfault/memfault-firmware-sdk
       path: modules/lib/memfault-firmware-sdk
-      revision: ncs-fota-use-after-free-fix
+      revision: 1.6.0
