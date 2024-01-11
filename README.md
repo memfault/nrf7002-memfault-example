@@ -36,3 +36,44 @@ To build the project:
 ❯ west flash
 # open a serial port and interact with the device to test
 ```
+
+## Testing OTA
+
+1. Build and flash the project with a specific version, for example `1.0.0`:
+
+   ```bash
+   ❯ west build --board nrf7002dk_nrf5340_cpuapp --pristine=always \
+     nrf7002-memfault-example \
+     -- \
+     -DCONFIG_MEMFAULT_NCS_PROJECT_KEY=\"${MEMFAULT_PROJECT_KEY}\" \
+     -DCONFIG_MEMFAULT_NCS_FW_VERSION_STATIC=y \
+     -DCONFIG_MEMFAULT_NCS_FW_VERSION=\"1.0.0\"
+   ```
+
+2. Rebuild with a different version, for example `1.1.0`:
+
+   ```bash
+   ❯ west build --board nrf7002dk_nrf5340_cpuapp --pristine=always \
+     nrf7002-memfault-example \
+     -- \
+     -DCONFIG_MEMFAULT_NCS_PROJECT_KEY=\"${MEMFAULT_PROJECT_KEY}\" \
+     -DCONFIG_MEMFAULT_NCS_FW_VERSION_STATIC=y \
+     -DCONFIG_MEMFAULT_NCS_FW_VERSION=\"1.1.0\"
+   ```
+
+3. Create a release in the Memfault UI matching the new version, here `1.1.0`,
+and upload the `build/zephyr/app_update.bin` artifact.
+
+4. Deploy the release to the device's cohort in the Memfault UI.
+
+5. From the device, run the `mflt_nrf get_latest_url` to confirm the new update
+   is ready.
+
+6. Run `mflt_nrf fota` to perform the update.
+
+7. After the update is dowloaded and installed, the device should restart.
+   Running `mflt get_device_info` should show the new version.
+
+More details on using Memfault OTA can be found here:
+
+https://docs.memfault.com/docs/platform/ota
