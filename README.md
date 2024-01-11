@@ -1,4 +1,4 @@
-![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/memfault/nrf7002-memfault-example/build.yml?style=for-the-badge&logo=githubactions)
+[![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/memfault/nrf7002-memfault-example/build.yml?style=for-the-badge&logo=githubactions)](https://github.com/memfault/nrf7002-memfault-example/actions/workflows/build.yml)
 
 # nRF7002 Memfault Example Project
 
