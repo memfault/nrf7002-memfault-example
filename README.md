@@ -4,7 +4,7 @@
 
 This is an example nRF-Connect SDK project, based on this example:
 
-https://github.com/nrfconnect/sdk-nrf/tree/v2.5.0/samples/debug/memfault
+https://github.com/nrfconnect/sdk-nrf/tree/v3.0.0/samples/debug/memfault
 
 It adds support for performing Memfault OTA on the nrf7002-dk development board,
 by adding the necessary configurations for placing the mcuboot secondary
@@ -28,7 +28,7 @@ To build the project:
 ❯ west update
 # to build the project, you need to provide a Memfault Project Key
 ❯ west build \
-    --board nrf7002dk_nrf5340_cpuapp \
+    --board nrf7002dk/nrf5340/cpuapp \
     --pristine=always nrf7002-memfault-example \
     -- \
     -DCONFIG_MEMFAULT_NCS_PROJECT_KEY=\"${MEMFAULT_PROJECT_KEY}\"
@@ -42,7 +42,7 @@ To build the project:
 1. Build and flash the project with a specific version, for example `1.0.0`:
 
    ```bash
-   ❯ west build --board nrf7002dk_nrf5340_cpuapp --pristine=always \
+   ❯ west build --board nrf7002dk/nrf5340/cpuapp --pristine=always \
      nrf7002-memfault-example \
      -- \
      -DCONFIG_MEMFAULT_NCS_PROJECT_KEY=\"${MEMFAULT_PROJECT_KEY}\" \
@@ -53,7 +53,7 @@ To build the project:
 2. Rebuild with a different version, for example `1.1.0`:
 
    ```bash
-   ❯ west build --board nrf7002dk_nrf5340_cpuapp --pristine=always \
+   ❯ west build --board nrf7002dk/nrf5340/cpuapp --pristine=always \
      nrf7002-memfault-example \
      -- \
      -DCONFIG_MEMFAULT_NCS_PROJECT_KEY=\"${MEMFAULT_PROJECT_KEY}\" \
